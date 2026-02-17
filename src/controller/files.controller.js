@@ -12,9 +12,7 @@ const fileUpload=asyncHandler(async(req,res)=>{
         if(!req.file){
             throw new ApiError(405,"The file is missing")
         }
-        console.log("Cloud name:", process.env.CLOUDINARY_CLOUD_NAME);
-        console.log("API key:", process.env.CLOUDINARY_API_KEY);
-        const uploadResult = cloudinary.uploader.upload_stream(
+        const uploadResult = await cloudinary.uploader.upload_stream(
         { resource_type: "raw" },
         async (error, result) => {
             if (error) throw error;

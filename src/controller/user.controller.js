@@ -9,10 +9,6 @@ import jwt from "jsonwebtoken"
 // 2.we will take the data and register the user and save the info in the database
 const generateAccessAndRefreshToken=async(user)=>{
     try {
-        console.log("Access:", user.generateAccessToken);
-        console.log("Refresh:", user.generateRefreshToken);
-        console.log("Secret:", process.env.ACCESS_TOKEN_SECRET);
-
         const accessToken=await user.generateAccessToken()
         const refreshToken=await user.generateRefreshToken()
         user.refreshToken=refreshToken;
@@ -73,9 +69,9 @@ const loginUser=asyncHandler(async(req,res)=>{
     if(!user){
         throw new ApiError(404,"User Not Found")
     }
-    console.log("the user is ", user.password);
+    
     const passwordValid=await user.comparePassword(password)
-    console.log(passwordValid)
+    
     if(!passwordValid){
         throw new ApiError(400,"Password is wrong")
     }
