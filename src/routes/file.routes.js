@@ -5,7 +5,8 @@ import { upload } from "../middlewares/multer.middleware.js"
 const router=Router()
 
 router.route("/upload").post(
-    verifyJWT,upload.single("file"),fileUpload
+    verifyJWT,upload.single("file"),
+    fileUpload
 )
 
 router.get("/download/:id", downloadFile);

@@ -7,6 +7,10 @@ const fileSchema = new Schema(
             required:true,
             trim: true,
         },
+        file_name:{
+            type:String,
+            required:true
+        },
         description:{
             type:String,
             default:"",
@@ -38,8 +42,4 @@ const fileSchema = new Schema(
         }
     },{timestamps:true}
 );
-
-
-
-
 export const File=mongoose.model("File",fileSchema)
