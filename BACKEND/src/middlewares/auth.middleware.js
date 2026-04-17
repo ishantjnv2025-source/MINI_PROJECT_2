@@ -21,7 +21,7 @@ export const verifyJWT=asyncHandler(async (req,res,next)=>{
         req.user=user
         next()
     } catch (error) {
-        throw new ApiError(400,error?.message || "Something went wrong while verifying jwt")
+        throw new ApiError(error.statusCode || 401, error?.message || "Something went wrong while verifying jwt")
     }
 
 })
