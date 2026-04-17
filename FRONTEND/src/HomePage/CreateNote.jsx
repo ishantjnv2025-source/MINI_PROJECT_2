@@ -128,8 +128,29 @@ setProgress(adjusted);
       
       
     } catch (error) {
-      console.log("Error:", error);
-    } finally {
+  console.log("Error:", error);
+
+  // ✅ Show backend error message (if exists)
+  const errMsg =
+    error.response?.data?.message || "Something went wrong!";
+  setMessage(errMsg);
+
+  // ❌ Stop progress
+  setProgress(0);
+
+  // ❌ Stop processing/loading UI
+  setProcessing(false);
+
+  // ❌ Reset file input
+  setFile(null);
+  if (fileRef.current) fileRef.current.value = "";
+
+  // ❌ OPTIONAL: clear all fields
+  setTitle("");
+  setSubject("");
+  setDescription("");
+  setTags([]);
+} finally {
       setLoading(false);
     }
   };

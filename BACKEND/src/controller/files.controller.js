@@ -9,7 +9,6 @@ const fileUpload = asyncHandler(async (req, res) => {
     console.log(req.body)
     console.log("FILE:", req.file);
     const { title, description, subject, tags } = req.body;
-    
     if (!title || !subject) {
         throw new ApiError(405, "Title and Subject is required");
     }
