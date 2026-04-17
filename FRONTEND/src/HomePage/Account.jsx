@@ -9,7 +9,7 @@ const Account = ({ onClose,user }) => {
   const logout=async ()=>{
     setLoading(true)
     try {
-      const res=await axios.get("http://localhost:8000/api/v1/users/logout",{withCredentials:true})
+      const res=await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/users/logout`,{withCredentials:true})
       if(res.data.success){
         navigate("/",{ replace: true });
       }

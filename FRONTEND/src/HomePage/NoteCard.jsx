@@ -64,7 +64,7 @@ const NoteCard = ({ data, onClick }) => {
       {/* Meta info */}
       <div className="meta">
         <span>📅 {formatDate(data.createdAt)}</span>
-        <span>📦 {(data.fileSize /( 1024*1024)).toFixed(1)} MB</span>
+        <span>📦 {(data.fileSize /( 1024*1024)).toFixed(3)} MB</span>
       </div>
 
       {/* Tags */}

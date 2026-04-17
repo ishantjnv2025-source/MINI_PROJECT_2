@@ -33,7 +33,7 @@ const DetailCard = ({ note, onClose ,favNote, onToggleFavourite}) => {
     setLoading(true);
 
     await axios.post(
-      "http://localhost:8000/api/v1/file/favourite",
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/file/favourite`,
       { fileId: note._id },
       { withCredentials: true }
     );

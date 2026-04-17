@@ -7,6 +7,7 @@ import { supabase } from "../utils/supabase.js";
 import { User } from "../models/user.models.js";
 const fileUpload = asyncHandler(async (req, res) => {
     console.log(req.body)
+    console.log("FILE:", req.file);
     const { title, description, subject, tags } = req.body;
     
     if (!title || !subject) {

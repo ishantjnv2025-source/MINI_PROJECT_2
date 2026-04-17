@@ -21,9 +21,9 @@ const Dashboard = () => {
 
   const searchFiles = async (query) => {
     try {
-      console.log( `http://localhost:8000/api/v1/file/search?title=${query}`)
+      console.log( `${import.meta.env.VITE_BACKEND_URL}/api/v1/file/search?title=${query}`)
       const res = await axios.get(
-        `http://localhost:8000/api/v1/file/search?title=${query}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/file/search?title=${query}`,
       {
           withCredentials: true,
         });
@@ -60,7 +60,7 @@ const Dashboard = () => {
   };
   const fetchNotes = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/v1/file`);
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/file`);
       if (res) {
         setNote(res.data.data);
       }
@@ -71,7 +71,7 @@ const Dashboard = () => {
 
   const fetchUser = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/v1/users/user`, {
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/users/user`, {
         withCredentials: true,
       });
       if (res) {
@@ -85,7 +85,7 @@ const Dashboard = () => {
   const setFav = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/api/v1/file/getFavourite`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/file/getFavourite`,
         {
           withCredentials: true,
         },

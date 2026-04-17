@@ -20,7 +20,7 @@ function Login() {
       console.log(email);
       console.log(password);
       const res = await axios.post(
-        "http://localhost:8000/api/v1/users/login",
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/login`,
         {
           email,
           password,
@@ -55,7 +55,7 @@ function Login() {
       const name = firstName +" "+ lastName;
 
       const res = await axios.post(
-        "http://localhost:8000/api/v1/users/register",
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/register`,
         {
           name,
           email,

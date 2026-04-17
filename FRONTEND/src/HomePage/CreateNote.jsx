@@ -73,7 +73,7 @@ const CreateNote = ({ setView }) => {
       formData.append("tags", tags.join(","));
 
       const res = await axios.post(
-        "http://localhost:8000/api/v1/file/upload",
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/file/upload`,
         formData,
         {
           withCredentials: true,
